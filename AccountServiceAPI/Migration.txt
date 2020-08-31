@@ -1,0 +1,6 @@
+﻿dotnet ef migrations add InitialCreate --context ProfileDbContext
+dotnet ef database update --context ProfileDbContext
+
+
+
+dotnet tool update --global dotnet-ef

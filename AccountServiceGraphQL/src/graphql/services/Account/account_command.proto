@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "AccountService.Commands";
+
+package Account;
+
+service AccountCommand {
+  rpc SignIn (SignInRequest) returns (SignInResponse) {}
+  rpc SignUp (SignUpRequest) returns (SignUpResponse) {}
+}
+
+
+message SignUpRequest {
+   string companyName = 1;
+   string firstName = 2;
+   string lastName = 3;
+   string roleName = 4;
+   string website = 5;
+   string email = 6;
+   string phone = 7;
+   string password = 8;
+}
+
+message SignUpResponse {
+   string userId = 1;
+   string link = 2;
+}
+
+message SignInRequest {
+    string userName = 1;
+    string password = 2;
+}
+
+message SignInResponse {
+  string accessToken = 1;
+  string refreshToken = 2;
+  int32 expiresIn = 3;
+  string tokenType = 4;
+}

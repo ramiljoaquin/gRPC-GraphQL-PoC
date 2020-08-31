@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "AccountService.Queries";
+
+
+package Profile;
+
+service ProfileQuery {
+  rpc GetProfile (ProfileRequest) returns (ProfileResponse) {}
+  rpc GetProfilePage (ProfilePageRequest) returns (ProfilePageResponse) {}
+}
+
+message ProfileRequest {
+  string profileId = 1;
+}
+
+message ProfileResponse {
+  string profileId = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string companyName = 4;
+  string website = 5;
+  string email = 6;
+  string phone = 7;
+  string photoThumbUrl = 8;
+  string birthDate = 9;
+  string createdWhen = 10;
+}
+
+message ProfilePageRequest {
+  string userId = 1;
+  string keywords = 2;
+  string orderBy = 3;
+  int32 page = 4;
+  int32 pageSize = 5;
+} 
+
+message ProfilePageResponse {
+  int32 page = 1;
+  int32 pageSize = 2;
+  int32 recordCount = 3;
+  repeated ProfileResponse records = 4;
+} 
+
+

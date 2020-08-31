@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "AccountService.Commands";
+
+package Profile;
+
+service ProfileCommand {
+  rpc UpdateProfile (UpdateProfileRequest) returns (UpdateProfileResponse) {}
+}
+
+message UpdateProfileRequest {
+  string profileId = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string photoThumbUrl = 4;
+}
+
+message UpdateProfileResponse {
+  string profileId = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string photoThumbUrl = 4;
+}
+

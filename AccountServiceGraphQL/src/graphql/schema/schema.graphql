@@ -1,0 +1,85 @@
+scalar DateTime
+scalar Long
+
+input SignInRequest {
+  userName: String!
+  password: String!
+}
+
+type SignInResponse {
+  accessToken: String
+  refreshToken: String
+  expiresIn: Int
+  tokenType: String
+}
+
+input SignUpRequest {
+  companyName: String
+  firstName: String
+  lastName: String
+  email: String!
+  password: String!
+  roleName: String!
+}
+
+type SignUpResponse {
+  userId: String
+  link: String
+}
+
+input UpdateProfileRequest {
+  profileId: ID!
+  firstName: String
+  lastName: String
+  photoThumbUrl: String
+}
+
+type UpdateProfileResponse {
+  profileId: ID!
+  firstName: String
+  lastName: String
+  photoThumbUrl: String
+}
+
+
+input GetProfilePageRequest {
+  keywords: String
+  orderBy: String
+  page: Int
+  pageSize: Int
+}
+
+type GetProfilePageResponse {
+  page: Int
+  pageSize: Int
+  recordCount: Int
+  records: [GetProfileResponse]
+}
+
+type GetProfileResponse {
+  profileId: ID!
+  firstName: String
+  lastName: String
+  email: String
+  companyName: String
+  birthDate: String
+  website: String
+  photoThumbUrl: String
+  phone: String
+}
+
+type Query {
+  getProfile(profileId: ID!): GetProfileResponse
+  getProfilePage(request: GetProfilePageRequest): GetProfilePageResponse
+}
+
+type Mutation {
+  signIn(userName: String!, password: String!): SignInResponse
+  signUp(request: SignUpRequest!): SignUpResponse
+  updateProfile(request: UpdateProfileRequest): UpdateProfileResponse
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

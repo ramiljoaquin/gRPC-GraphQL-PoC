@@ -1,0 +1,228 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgba(242, 242, 242, 1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  min-height: 8px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  color: gray;  
+}
+
+#root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+#root, 
+.layout, 
+.layout-content,
+.panel-collapse {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+.layout {
+  background: rgba(242, 242, 242, 1);
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.layout:not(.layout-empty) {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 60px auto;
+  column-gap: 0px;
+}
+
+.layout-navs {
+   background-color:gray;
+   height: 100%;
+   .navs-header {
+     margin: 0;
+     padding: 0;
+     height: 50px;
+   }
+   .navs-content {
+    margin: 0;
+    padding: 0;
+    .nav {
+      display: block;
+      .nav-item {
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        background-color: gray;
+        &.nav-item-selected, &:hover {
+          background-color:gray;
+          .icon {
+            color:white;
+          }
+        }
+        .icon {
+          color: #618186;
+          font-size: 20px;
+        }
+      }
+    }
+   }
+}
+
+.layout-content {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 60px auto;
+  row-gap: 0px;
+  .layout-header {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+  }
+  .layout-body {
+    height: calc(100vh - 60px);
+    padding:0;
+    position: relative;
+  }
+}
+
+.navbar-toggler
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+.layout-header >
+.navbar {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.layout-header >
+.navbar >
+.navbar-grid {
+  display: grid;
+  grid-template-columns: 30% auto;
+  column-gap: 0;
+}
+.layout-header >
+.navbar >
+.navbar-grid >
+.navbar-grid-col {
+  line-height: 58px;
+  .rs-right-navbar {
+    margin-left: auto;
+    width: 160px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 0;
+    .navbar-item {
+      text-align: center;
+      background: white;
+      line-height: 48px;
+      .icon {
+         font-size: 22px;
+      }
+      &:not(:last-child) {
+        margin-top:6px;
+      }
+    }
+    .profile-dropdown {
+       position: static;
+      .profile-dropdown-btn {
+        background: transparent;
+        outline: none;
+        border: 0;
+      }
+      .dropdown-menu {
+        left: auto;
+        right: 0px;
+        line-height:25px;
+      }
+    }
+  }
+}
+
+.profile-pic {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: darkgoldenrod;
+  color: white;
+  border-radius: 15px;
+  font-size: small;
+  text-decoration: none;
+  line-height: 28px;
+  text-align: center;
+}
+
+/* Logo */
+
+.app-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .app-logo {
+    animation: app-logo-spin infinite 20s linear;
+  }
+}
+
+.app-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.app-link {
+  color: #61dafb;
+}
+
+@keyframes app-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
